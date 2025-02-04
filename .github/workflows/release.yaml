@@ -34,6 +34,7 @@ jobs:
             jq \
             squashfs-tools \
             xz-utils \
+            qemu-utils \
             gawk
 
       # - name: build release artifacts

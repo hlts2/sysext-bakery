@@ -40,10 +40,14 @@ jobs:
       - name: build flatcar image
         run: |
           pushd bakery
-          # wget https://github.com/flatcar/sysext-bakery/releases/download/latest/kubernetes-v1.27.3-x86-64.raw -o kubernetes.raw
+          wget https://github.com/flatcar/sysext-bakery/releases/download/latest/kubernetes-v1.27.3-x86-64.raw -o kubernetes-v1.27.3-x86-64.raw
+          wget https://github.com/flatcar/sysext-bakery/releases/download/latest/kubernetes-v1.27.conf -o kubernetes-v1.27.conf
+          ./bake_flatcar_image.sh kubernetes-v1.27:kubernetes-v1.27.3-x86-64.raw --vendor kubevirt
+
           # ./bake_flatcar_image.sh kubernetes:kubernetes.raw --vendor kubevirt
           # qemu-img convert -f raw -O qcow2 flatcar_production_image.bin flatcar_production_image.qcow2
-          ./bake_flatcar_image.sh kubernetes-v1.27:kubernetes-v1.27.3-x86-64.raw --fetch --vendor kubevirt
+          # ./bake_flatcar_image.sh kubernetes-v1.27:kubernetes-v1.27.3-x86-64.raw --fetch --vendor kubevirt
+          # ./bake_flatcar_image.sh kubernetes-v1.27:kubernetes-v1.27.3-x86-64.raw --fetch --vendor kubevirt
           bunzip2 flatcar_production_kubevirt_image.qcow2.bz2
 
       - name: create a new latest release with some artifacts

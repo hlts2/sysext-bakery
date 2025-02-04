@@ -44,7 +44,7 @@ jobs:
       - name: build flatcar image
         run: |
           pushd bakery
-          ./bake_flatcar_image.sh kubernetes:bakery/kubernetes.raw
+          ./bake_flatcar_image.sh kubernetes:kubernetes.raw
 
       # - name: create a new latest release with some artifacts
       #   uses: softprops/action-gh-release@v2

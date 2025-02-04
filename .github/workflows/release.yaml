@@ -44,6 +44,7 @@ jobs:
       - name: build flatcar image
         run: |
           pushd bakery
+          wget https://github.com/flatcar/sysext-bakery/releases/download/latest/kubernetes-v1.27.3-x86-64.raw -o kubernetes.raw
           ./bake_flatcar_image.sh kubernetes:kubernetes.raw
 
       # - name: create a new latest release with some artifacts

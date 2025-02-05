@@ -57,4 +57,4 @@ jobs:
           files: |
             bakery/flatcar_production_kubevirt_image.qcow2
             bakery/kubernetes-v1.27.conf
-            bakery/kubernetes-v1.27.3-x86-64.raw
+            bakery/kubernetes.raw
